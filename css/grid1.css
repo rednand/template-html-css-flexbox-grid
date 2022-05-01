@@ -1,0 +1,98 @@
+body,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  margin-bottom: 100px;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  background: #1d1e20;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /*caso diminua a pagina, o item vai pra linha de baixo*/
+  align-items: center;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  margin-left: 10px;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+}
+
+/*CSS GRID 1*/
+
+.grid1 {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; que vira:*/
+  grid-template-columns: repeat(3, 1fr);
+  /*divide em quantas colunas se quer o grid - nesse caso, em 3 - 33%*/
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  grid-gap: 20px;
+  /*coloca margin entre as frações de grid*/
+}
+
+.grid1 > div:nth-child(n + 4) {
+  /*(n + 4) seleiona os itens a partir do 4 - nesse caso é o 4. div*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  /*alinha as legendas no meio das imagens*/
+}
+
+.grid1 > div.anuncio {
+  background-color: rgb(244, 100, 100);
+  grid-column: 1;
+  grid-row: 2 / 5;
+  display: block;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .grid1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid1 > div:nth-child(n + 4) {
+    display: block;
+    /*adicionando display block todos os valores do grid são perdidos pois as propriedades do grid não podem mais ser aplicadas*/
+  }
+  .grid1 > div.anuncio {
+    grid-column: auto;
+    grid-row: auto;
+    order: -1; /*modifica a ordem da div*/
+  }
+}
+
+/*CSS GRID 1*/
